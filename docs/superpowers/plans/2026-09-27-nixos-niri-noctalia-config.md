@@ -17,15 +17,15 @@
 - Create/Overwrite: `configuration.nix`
 - Create/Overwrite: `hardware-configuration.nix`
 
-- [ ] **Step 1: Write `flake.nix` with inputs for nixpkgs-unstable, home-manager, and noctalia**
+- [x] **Step 1: Write `flake.nix` with inputs for nixpkgs-unstable, home-manager, and noctalia**
   - Defines `nixosConfigurations.nixos` for architecture `x86_64-linux`.
   - Passes `inputs` to modules via `specialArgs`.
   - Imports `configuration.nix` and `home-manager.nixosModules.home-manager`.
 
-- [ ] **Step 2: Write `hardware-configuration.nix` safe fallback placeholder**
+- [x] **Step 2: Write `hardware-configuration.nix` safe fallback placeholder**
   - Includes standard boot modules and filesystems fallback with clear instructions to replace with output of `nixos-generate-config`.
 
-- [ ] **Step 3: Write `configuration.nix` with system services, bootloader, users, fonts, and module imports**
+- [x] **Step 3: Write `configuration.nix` with system services, bootloader, users, fonts, and module imports**
   - Systemd-boot EFI bootloader.
   - User `jalioba` with groups `wheel`, `networkmanager`, `video`, `audio`, `input`.
   - Default shell set to `pkgs.fish`.
@@ -33,7 +33,7 @@
   - Fonts: `nerdfonts.jetbrains-mono`, `font-awesome`, `noto-fonts`.
   - Imports `modules/system/amd-gpu.nix`, `modules/system/greetd.nix`, `modules/system/sound.nix`.
 
-- [ ] **Step 4: Commit Task 1**
+- [x] **Step 4: Commit Task 1**
   ```bash
   git add flake.nix configuration.nix hardware-configuration.nix
   git commit -m "feat(system): add flake.nix, base configuration.nix, and hardware placeholder"
@@ -48,22 +48,22 @@
 - Create: `modules/system/greetd.nix`
 - Create: `modules/system/sound.nix`
 
-- [ ] **Step 1: Implement `modules/system/amd-gpu.nix`**
+- [x] **Step 1: Implement `modules/system/amd-gpu.nix`**
   - Enables `hardware.graphics` (Mesa, RADV, 32-bit support).
   - Configures VA-API / VDPAU hardware acceleration packages (`libva-utils`, `vaapiVdpau`, `libvdpau-va-gl`).
   - Sets kernel module `amdgpu`.
   - Detailed Russian navigation comments explaining driver switches.
 
-- [ ] **Step 2: Implement `modules/system/greetd.nix` with ReGreet (GTK4)**
+- [x] **Step 2: Implement `modules/system/greetd.nix` with ReGreet (GTK4)**
   - Configures `programs.regreet` with `JetBrainsMono Nerd Font`, dark theme preference, and default command `niri-session`.
   - Provides hooks and paths for custom background wallpaper (`/etc/nixos/wallpaper.jpg` or `assets/wallpaper.jpg`).
   - Enables `services.greetd`.
 
-- [ ] **Step 3: Implement `modules/system/sound.nix` with PipeWire**
+- [x] **Step 3: Implement `modules/system/sound.nix` with PipeWire**
   - Enables `services.pipewire` with ALSA, PulseAudio, JACK emulation and WirePlumber.
   - Enables real-time privileges for audio (`security.rtkit.enable = true`).
 
-- [ ] **Step 4: Commit Task 2**
+- [x] **Step 4: Commit Task 2**
   ```bash
   git add modules/system/
   git commit -m "feat(system): add amd-gpu, greetd regreet, and pipewire sound modules"
@@ -77,7 +77,7 @@
 - Create: `modules/desktop/niri.nix`
 - Create: `modules/desktop/noctalia.nix`
 
-- [ ] **Step 1: Implement `modules/desktop/niri.nix`**
+- [x] **Step 1: Implement `modules/desktop/niri.nix`**
   - Configures Niri via Home Manager `xdg.configFile."niri/config.kdl"`.
   - Binds:
     - `Mod+Return` -> `ghostty`
@@ -94,12 +94,12 @@
   - Autostart entries for `noctalia`, `polkit-gnome`, and wayland environment.
   - Window rules for Noctalia bars/popups and floating file pickers.
 
-- [ ] **Step 2: Implement `modules/desktop/noctalia.nix`**
+- [x] **Step 2: Implement `modules/desktop/noctalia.nix`**
   - Integrates `inputs.noctalia` package or Home Manager module.
   - Sets up statusbar with workspaces, clock, volume, battery, system tray.
   - Configures launcher and notification center settings.
 
-- [ ] **Step 3: Commit Task 3**
+- [x] **Step 3: Commit Task 3**
   ```bash
   git add modules/desktop/
   git commit -m "feat(desktop): add niri compositor config and noctalia shell module"
@@ -114,20 +114,20 @@
 - Create: `modules/programs/starship.nix`
 - Create: `modules/programs/cli.nix`
 
-- [ ] **Step 1: Implement `modules/programs/fish.nix`**
+- [x] **Step 1: Implement `modules/programs/fish.nix`**
   - Enables `programs.fish`.
   - Integrates shell aliases (`ls -> eza`, `cat -> bat`, `cd -> z`, `nix-rebuild`).
   - Enables `programs.zoxide.enable = true` and `programs.fzf.enable = true`.
   - Fastfetch greeting.
 
-- [ ] **Step 2: Implement `modules/programs/starship.nix`**
+- [x] **Step 2: Implement `modules/programs/starship.nix`**
   - Enables `programs.starship`.
   - Custom prompt configuration: directory, git status/branch, nix-shell, command duration, error symbol.
 
-- [ ] **Step 3: Implement `modules/programs/cli.nix`**
+- [x] **Step 3: Implement `modules/programs/cli.nix`**
   - Installs and configures: `git`, `htop`, `btop`, `ripgrep`, `fd`, `bat`, `eza`, `fzf`, `zoxide`, `jq`, `unzip`, `fastfetch`, `pciutils`.
 
-- [ ] **Step 4: Commit Task 4**
+- [x] **Step 4: Commit Task 4**
   ```bash
   git add modules/programs/fish.nix modules/programs/starship.nix modules/programs/cli.nix
   git commit -m "feat(programs): add fish shell, starship prompt, and cli utilities"
@@ -143,19 +143,19 @@
 - Create: `modules/programs/thunar.nix`
 - Create: `modules/programs/yazi.nix`
 
-- [ ] **Step 1: Implement `modules/programs/ghostty.nix`**
+- [x] **Step 1: Implement `modules/programs/ghostty.nix`**
   - Configures Ghostty with `catppuccin-mocha` theme, `JetBrainsMono Nerd Font`, 0.95 opacity, 10px padding, clipboard integration.
 
-- [ ] **Step 2: Implement `modules/programs/firefox.nix`**
+- [x] **Step 2: Implement `modules/programs/firefox.nix`**
   - Enables Firefox with Wayland flags (`MOZ_ENABLE_WAYLAND=1`), VA-API hardware acceleration, privacy defaults.
 
-- [ ] **Step 3: Implement `modules/programs/thunar.nix`**
+- [x] **Step 3: Implement `modules/programs/thunar.nix`**
   - Enables Thunar file manager, `xfce.thunar-archive-plugin`, `xfce.thunar-volman`, and thumbnails.
 
-- [ ] **Step 4: Implement `modules/programs/yazi.nix`**
+- [x] **Step 4: Implement `modules/programs/yazi.nix`**
   - Enables `programs.yazi` with shell integration (`y` command to cd on exit), image preview support in Ghostty via `ffmpegthumbnailer`, `poppler`, `unar`.
 
-- [ ] **Step 5: Commit Task 5**
+- [x] **Step 5: Commit Task 5**
   ```bash
   git add modules/programs/ghostty.nix modules/programs/firefox.nix modules/programs/thunar.nix modules/programs/yazi.nix
   git commit -m "feat(programs): add ghostty terminal, firefox, thunar, and yazi file managers"
@@ -173,17 +173,17 @@
 - Create: `modules/programs/nvim/config/lua/config/keymaps.lua`
 - Create: `modules/programs/nvim/config/lua/plugins/nix-mason.lua`
 
-- [ ] **Step 1: Implement `modules/programs/nvim/default.nix`**
+- [x] **Step 1: Implement `modules/programs/nvim/default.nix`**
   - Packages: `neovim`, `gcc`, `gnumake`, `ripgrep`, `fd`, `unzip`, `tree-sitter`, `nodejs`, `python3`, `nil`, `nixpkgs-fmt`, `lua-language-server`.
   - Links `config/` directory into `~/.config/nvim/` via `xdg.configFile."nvim"`.
 
-- [ ] **Step 2: Implement LazyVim Lua configuration**
+- [x] **Step 2: Implement LazyVim Lua configuration**
   - `init.lua`: bootstraps `lazy.nvim` from GitHub if not already present.
   - `lua/config/lazy.lua`: configures LazyVim spec and defaults.
   - `lua/config/options.lua` & `keymaps.lua`: essential settings (line numbers, tabwidth, clipboard, leader = Space).
   - `lua/plugins/nix-mason.lua`: disables Mason automatic download/install to keep pure Nix stability.
 
-- [ ] **Step 3: Commit Task 6**
+- [x] **Step 3: Commit Task 6**
   ```bash
   git add modules/programs/nvim/
   git commit -m "feat(nvim): add neovim and lazyvim hybrid nixos configuration"
@@ -197,17 +197,17 @@
 - Create/Overwrite: `home.nix`
 - Create: `README.md`
 
-- [ ] **Step 1: Implement `home.nix`**
+- [x] **Step 1: Implement `home.nix`**
   - Imports all user modules (`desktop/niri.nix`, `desktop/noctalia.nix`, and all `modules/programs/*.nix`).
   - Sets `home.username = "jalioba"`, `home.homeDirectory = "/home/jalioba"`, `home.stateVersion = "24.11"`.
   - Enables `programs.home-manager.enable = true`.
 
-- [ ] **Step 2: Create comprehensive `README.md` in Russian**
+- [x] **Step 2: Create comprehensive `README.md` in Russian**
   - Quick-start guide: cloning repo, generating `hardware-configuration.nix`, running `sudo nixos-rebuild switch --flake .#nixos`.
   - Keybindings cheat sheet for Niri, Ghostty, Yazi, Noctalia.
   - Explanations of how to customize themes, fonts, wallpapers, and add new packages.
 
-- [ ] **Step 3: Commit Task 7**
+- [x] **Step 3: Commit Task 7**
   ```bash
   git add home.nix README.md
   git commit -m "feat: complete home.nix imports and add comprehensive README"
@@ -217,7 +217,7 @@
 
 ### Task 8: Validation & Verification
 
-- [ ] **Step 1: Check syntax and flake structure**
+- [x] **Step 1: Check syntax and flake structure**
   - Verify all Nix files parse without syntax errors.
   - Verify directory structure matches the spec.
-- [ ] **Step 2: Final Git status and commit if needed**
+- [x] **Step 2: Final Git status and commit if needed**
