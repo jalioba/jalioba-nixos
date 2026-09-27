@@ -27,23 +27,14 @@
     enable32Bit = true; # Необходимо для 32-битных приложений (Steam, Wine и т.д.)
 
     extraPackages = with pkgs; [
-      libva-utils          # Утилита vainfo для диагностики
-      vaapiVdpau           # Прослойка VA-API -> VDPAU
-      libvdpau-va-gl       # Драйвер VDPAU через OpenGL
-      mesa.drivers         # Драйверы Mesa (RadeonSI, RADV)
+      libva-utils          # Утилита vainfo для диагностики VA-API
       vulkan-loader        # Загрузчик Vulkan
       vulkan-tools         # Утилита vulkaninfo
-    ];
-
-    extraPackages32 = with pkgs.pkgsi686Linux; [
-      vaapiVdpau
-      libvdpau-va-gl
     ];
   };
 
   # Переменные окружения для принудительного использования аппаратного ускорения AMD
   environment.variables = {
     LIBVA_DRIVER_NAME = "radeonsi";
-    VDPAU_DRIVER = "radeonsi";
   };
 }
