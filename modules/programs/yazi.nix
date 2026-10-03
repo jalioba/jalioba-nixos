@@ -21,6 +21,7 @@
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
+    shellWrapperName = "y";
 
     # Настройки Yazi (yazi.toml)
     settings = {
@@ -43,7 +44,7 @@
   # Вспомогательные пакеты для генерации миниатюр и предпросмотра
   home.packages = with pkgs; [
     ffmpegthumbnailer # Генерация превью для видео
-    poppler_utils     # Генерация превью для PDF (pdftoppm)
+    poppler-utils     # Генерация превью для PDF (pdftoppm)
     unar              # Предпросмотр содержимого архивов
     file              # Определение MIME-типов файлов
   ];

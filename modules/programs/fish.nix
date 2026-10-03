@@ -54,19 +54,6 @@
           fastfetch
       end
     '';
-
-    # Функции Fish
-    functions = {
-      # Обертка над yazi: при нажатии 'q' выходит с переходом в текущую открытую директорию
-      y = ''
-        set tmp (mktemp -t "yazi-cwd.XXXXXX")
-        yazi $argv --cwd-file="$tmp"
-        if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-            builtin cd -- "$cwd"
-        end
-        rm -f -- "$tmp"
-      '';
-    };
   };
 
   # Интеграция умной навигации zoxide (команда 'z' вместо 'cd')
