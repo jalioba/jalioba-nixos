@@ -111,7 +111,7 @@
     font-awesome              # Иконки для интерфейсов
     noto-fonts                # Базовые шрифты Unicode
     noto-fonts-cjk-sans       # Азиатские иероглифы
-    noto-fonts-emoji          # Цветные эмодзи
+    noto-fonts-color-emoji    # Цветные эмодзи
   ];
 
   # Поддержка Dconf и Xfconf для настроек тем GTK, Thunar и диалогов

@@ -15,7 +15,7 @@
 
 {
   # Включение графического экрана приветствия ReGreet (GTK4)
-  programs.regreet = {
+  services.displayManager.regreet = {
     enable = true;
 
     # Основные настройки внешнего вида

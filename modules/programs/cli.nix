@@ -15,10 +15,12 @@
   # ----------------------------------------------------------------------------
   programs.git = {
     enable = true;
-    userName = "jalioba";
-    userEmail = "jalioba@users.noreply.github.com"; # Замените на вашу актуальную почту
 
-    extraConfig = {
+    settings = {
+      user = {
+        name = "jalioba";
+        email = "jalioba@users.noreply.github.com"; # Замените на вашу актуальную почту
+      };
       init.defaultBranch = "main";
       pull.rebase = true;
       push.autoSetupRemote = true;

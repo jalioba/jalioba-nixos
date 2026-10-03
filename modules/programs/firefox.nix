@@ -17,6 +17,7 @@
 {
   programs.firefox = {
     enable = true;
+    configPath = ".mozilla/firefox";
 
     # Пользовательский профиль
     profiles.jalioba = {
