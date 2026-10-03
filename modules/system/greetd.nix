@@ -29,16 +29,10 @@
 
       # Оформление GTK
       GTK = {
-        application_prefer_dark_theme = true;
-        font_name = "JetBrainsMono Nerd Font 11";
-        theme_name = "Adwaita-dark";
-        icon_theme_name = "Adwaita";
-      };
-
-      # Системные команды выключения и перезагрузки
-      commands = {
-        reboot = [ "systemctl" "reboot" ];
-        poweroff = [ "systemctl" "poweroff" ];
+        application_prefer_dark_theme = lib.mkDefault true;
+        font_name = lib.mkForce "JetBrainsMono Nerd Font 11";
+        theme_name = lib.mkDefault "Adwaita-dark";
+        icon_theme_name = lib.mkDefault "Adwaita";
       };
     };
   };
