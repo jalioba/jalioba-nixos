@@ -106,7 +106,7 @@
     spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 
     // Запуск графического агента Polkit для запросов паролей
-    spawn-at-startup "${pkgs.polkit-gnome}/libexec/polkit-gnome-authentication-agent-1"
+    spawn-at-startup "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
 
     // Запуск оболочки Noctalia Shell (статусбар, лаунчер, центр уведомлений)
     spawn-at-startup "noctalia"
