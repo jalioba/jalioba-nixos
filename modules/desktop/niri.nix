@@ -118,7 +118,7 @@
         // --- Запуск основных приложений ---
         Mod+Return { spawn "ghostty"; }
         Mod+B      { spawn "firefox"; }
-        Mod+Space  { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+        Mod+Space  { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
         Mod+E      { spawn "ghostty" "-e" "yazi"; }
         Mod+Shift+F { spawn "thunar"; }
 
@@ -192,8 +192,7 @@
     // =============================================================================
     // Плавающие окна для системных диалогов, выбора файлов и микшера
     window-rule {
-        match app-id=r#"pavucontrol$"#
-        match app-id=r#"polkit-gnome-authentication-agent-1$"#
+        match app-id=r#"^(pavucontrol|polkit-gnome-authentication-agent-1)$"#
         open-floating true
     }
   '';

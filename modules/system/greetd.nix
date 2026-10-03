@@ -36,9 +36,4 @@
       };
     };
   };
-
-  # Дополнительные настройки службы greetd
-  services.greetd = {
-    enable = true;
-  };
 }

@@ -21,17 +21,16 @@
   # Указание системного драйвера для графической подсистемы
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  # Настройка графической подсистемы OpenGL / Vulkan
   hardware.graphics = {
     enable = true;
     enable32Bit = true; # Необходимо для 32-битных приложений (Steam, Wine и т.д.)
-
-    extraPackages = with pkgs; [
-      libva-utils          # Утилита vainfo для диагностики VA-API
-      vulkan-loader        # Загрузчик Vulkan
-      vulkan-tools         # Утилита vulkaninfo
-    ];
   };
+
+  # Утилиты диагностики аппаратного ускорения в командной строке (vainfo, vulkaninfo)
+  environment.systemPackages = with pkgs; [
+    libva-utils  # Утилита vainfo для диагностики VA-API
+    vulkan-tools # Утилита vulkaninfo для диагностики Vulkan
+  ];
 
   # Переменные окружения для принудительного использования аппаратного ускорения AMD
   environment.variables = {

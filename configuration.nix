@@ -118,6 +118,15 @@
   programs.dconf.enable = true;
   programs.xfconf.enable = true;
 
+  # Графический файловый менеджер Thunar с поддержкой плагинов
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+
   # ----------------------------------------------------------------------------
   # 7. ОБЩЕСИСТЕМНЫЕ ПАКЕТЫ
   # ----------------------------------------------------------------------------
