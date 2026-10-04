@@ -44,6 +44,12 @@
 
     # Набор консольных утилит
     ./modules/programs/cli.nix      # Git, htop, btop, bat, eza, ripgrep и др.
+
+    # Повседневные графические приложения (VSCode, Telegram, Discord, WhatsApp, Spotify, Antigravity)
+    ./modules/programs/apps.nix
+
+    # Среды разработки, языки программирования и базы данных (Node 26, Bun, Rust, Zig, Python 3.14, Go, SQL)
+    ./modules/programs/dev.nix
   ];
 
   # ----------------------------------------------------------------------------

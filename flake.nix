@@ -28,6 +28,12 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Темы оформления GRUB от vinceliuice
+    grub2-themes = {
+      url = "github:vinceliuice/grub2-themes";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
@@ -40,6 +46,9 @@
         specialArgs = { inherit inputs; };
 
         modules = [
+          # Модуль тем оформления GRUB
+          inputs.grub2-themes.nixosModules.default
+
           # Общесистемная конфигурация
           ./configuration.nix
 

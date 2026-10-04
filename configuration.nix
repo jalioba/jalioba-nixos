@@ -26,9 +26,29 @@
 
   # ----------------------------------------------------------------------------
   # 1. ЗАГРУЗЧИК (BOOTLOADER)
-  # ----------------------------------------------------------------------------
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10; # Хранить до 10 последних поколений системы
+  # Отключаем systemd-boot во избежание переполнения раздела /boot
+  boot.loader.systemd-boot.enable = false;
+
+  # Включение и настройка GRUB с поддержкой UEFI
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    device = "nodev"; # Для EFI-систем обязательно "nodev"
+    useOSProber = true; # Автоматический поиск других ОС (Windows)
+    configurationLimit = 10; # Хранить до 10 последних поколений системы
+  };
+
+  # Тема оформления GRUB от vinceliuice (стиль "stylish")
+  boot.loader.grub2-theme = {
+    enable = true;
+    theme = "stylish";
+    icon = "color";
+    screen = "1080p";
+  };
+
+  # Время ожидания выбора системы в секундах
+  boot.loader.timeout = 30;
+
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Свежее стабильное ядро Linux
