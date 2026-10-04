@@ -20,6 +20,7 @@
 
     # Системные модули
     ./modules/system/amd-gpu.nix   # Драйверы видеокарты AMD (Mesa / RADV / VA-API)
+    ./modules/system/bluetooth.nix # Беспроводная связь Bluetooth (BlueZ + Blueman)
     ./modules/system/greetd.nix    # Экран входа ReGreet (GTK4)
     ./modules/system/sound.nix     # Звуковой сервер PipeWire + WirePlumber
   ];

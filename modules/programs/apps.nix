@@ -45,6 +45,9 @@
     # Музыка
     spotify              # Официальный стриминговый клиент Spotify
 
+    # Программы и улитилы
+    qbittorrent
+
     # Среда разработки
     antigravity-ide      # Google Antigravity IDE
   ];
