@@ -34,6 +34,12 @@
       url = "github:vinceliuice/grub2-themes";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Fastpotify: легковесный клиент Spotify
+    fastpotify = {
+      url = "github:gnkz/fastpotify.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {

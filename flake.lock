@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "fastpotify": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789216018,
+        "narHash": "sha256-4tgy1SK1rx4VxTZ0AIM4GxKWJbF9MKb6WL0jF97vyjE=",
+        "owner": "gnkz",
+        "repo": "fastpotify.nix",
+        "rev": "e81657b9f7492fd778f64935ce351ca6d478d9bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gnkz",
+        "repo": "fastpotify.nix",
+        "type": "github"
+      }
+    },
     "grub2-themes": {
       "inputs": {
         "nixpkgs": [
@@ -78,6 +98,7 @@
     },
     "root": {
       "inputs": {
+        "fastpotify": "fastpotify",
         "grub2-themes": "grub2-themes",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
