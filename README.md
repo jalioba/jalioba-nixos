@@ -8,8 +8,9 @@
 
 * **Оконный менеджер**: [Niri](https://github.com/YaLTeR/niri) — бесконечная горизонтальная лента скроллящегося тайлинга под Wayland.
 * **Оболочка рабочего стола**: [Noctalia Shell](https://noctalia.dev) — современный верхний статусбар, лаунчер приложений, OSD и центр уведомлений на Qt6/Quickshell.
-* **Экран входа (Display Manager)**: `greetd` + [ReGreet](https://github.com/rharish101/ReGreet) (GTK4) с поддержкой обоев, темной темы и шрифтов.
-* **Терминал**: [Ghostty](https://ghostty.org) — сверхбыстрый GPU-ускоренный эмулятор терминала с темой Catppuccin Mocha.
+* **Оболочка рабочего стола**: [Noctalia Shell](https://noctalia.dev) — современный верхний статусбар, лаунчер приложений, OSD и центр уведомлений на Qt6/Quickshell.
+* **Экран входа (Display Manager)**: **SDDM** с анимированной темой [sddm-astronaut-theme](https://github.com/Keyitdev/sddm-astronaut-theme) (профиль `hyprland_kath.conf`).
+* **Терминал**: [Ghostty](https://ghostty.org) — сверхбыстрый GPU-ускоренный эмулятор терминала с темой Monokai Pro.
 * **Командная оболочка**: [Fish](https://fishshell.com) — умный шелл с автодополнением по Tab, интеграцией с `zoxide`, `fzf` и быстрыми алиасами.
 * **Промпт**: [Starship](https://starship.rs) — информативная строка состояния с веткой Git, индикатором Nix Shell и временем выполнения.
 * **Редактор кода**: [Neovim](https://neovim.io) + [LazyVim](https://www.lazyvim.org) — гибридная конфигурация: LSP (`nil`, `lua-ls`), компиляторы и утилиты управляются через Nix, а плагины LazyVim работают без конфликтов с путями NixOS.
@@ -33,7 +34,8 @@ jalioba-nixos/
 └── modules/
     ├── system/                # Общесистемные модули
     │   ├── amd-gpu.nix        # Драйверы видеокарты AMD, Mesa, RADV, VA-API
-    │   ├── greetd.nix         # Экран входа ReGreet (GTK4)
+    │   ├── bluetooth.nix      # Служба BlueZ, автозапуск, поддержка аудио и Blueman
+    │   ├── sddm.nix           # Экран входа SDDM (Astronaut / hyprland_kath)
     │   └── sound.nix          # Звуковой сервер PipeWire и утилиты
     ├── desktop/               # Графическая среда
     │   ├── niri.nix           # Оконный менеджер Niri (разметка ленты, хоткеи)
@@ -129,9 +131,9 @@ reboot
 ---
 
 ## Кастомизация
-
-1. **Обои для экрана входа (ReGreet)**:
-   Поместите изображение в `/etc/nixos/assets/wallpaper.jpg` или укажите собственный путь в файле [modules/system/greetd.nix](file:///modules/system/greetd.nix).
+ 
+1. **Экран входа SDDM (тема Astronaut)**:
+   Настройки темы и выбор пресета находятся в [modules/system/sddm.nix](file:///modules/system/sddm.nix). Вы можете сменить пресет `embeddedTheme` (например, `astronaut`, `black_hole`, `cyberpunk`, `hyprland_kath`) или переопределить параметры в `themeConfig`.
 2. **Панель и лаунчер Noctalia**:
    Настройки статус-бара, виджетов и лаунчера находятся в файле [modules/desktop/noctalia.nix](file:///modules/desktop/noctalia.nix).
 3. **Терминал Ghostty**:
